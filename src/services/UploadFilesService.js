@@ -4,11 +4,12 @@ class UploadFilesService {
   upload(file, onUploadProgress) {
     let formData = new FormData();
 
-    formData.append("file", file);
+    formData.append("uploadFile", file);
 
-    return http.post("/upload", formData, {
+    return http.post("/inbound/uploadSkus/", formData, {
       headers: {
-        "Content-Type": "multipart/form-data"
+        "Content-Type": "multipart/form-data",
+        "Authorization": "ddd364f2-3b97-4417-9c10-5f4824e9b40a"
       },
       onUploadProgress
     });
